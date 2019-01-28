@@ -1,0 +1,8 @@
+<div *ngIf="displayService.modifiedText.length">
+
+    <h2>Display</h2>
+    <!--button class="clear"
+            (click)="displayService.clear()">clear</button-->
+    <div *ngFor='let display of displayService.modifiedText'> {{display}} </div>
+  
+  </div>

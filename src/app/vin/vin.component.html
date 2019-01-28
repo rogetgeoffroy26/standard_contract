@@ -1,0 +1,16 @@
+
+<label>
+  <span>
+    VIN:<input type="text" [formControl]="vin">
+  </span>
+</label>
+<label>
+  <span>
+    <button (click)="submitVin()">
+      Submit VIN
+    </button>
+  </span>
+</label>
+<p>
+    Value: {{ vin.value }}
+</p>

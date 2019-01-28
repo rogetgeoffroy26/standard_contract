@@ -1,0 +1,55 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input type="text" [formControl]="quoteControl" [(ngModel)]="searchText" (ngModelChange) = "onOptionSelected($event)" placeholder="Enter the year, make and model of your car" aria-label="Make" matInput [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of data | carFilter: {year: searchText, make: searchText,  model: searchText}" [value]="option">
+          {{option.year}} {{option.make}} {{option.model}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+<mat-form-field class="example-form-field">
+  <input matInput type="text" placeholder="Enter Mileage" [(ngModel)]="mileage">
+  <button mat-button *ngIf="mileage" matSuffix mat-icon-button aria-label="Clear" (click)="mileage=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<mat-form-field class="example-form-field">
+    <input matInput type="text" placeholder="Enter Zipcode" [(ngModel)]="zipcode">
+    <button mat-button *ngIf="zipcode" matSuffix mat-icon-button aria-label="Clear" (click)="zipcode=''">
+      <mat-icon>close</mat-icon>
+    </button>
+</mat-form-field>
+<section class="example-section">
+    <mat-checkbox class="example-margin" [(ngModel)]="fwd">Four Wheel Drive</mat-checkbox>
+    <mat-checkbox class="example-margin" [(ngModel)]="diesel">Diesel</mat-checkbox>
+    <mat-checkbox class="example-margin" [(ngModel)]="turbo">Turbo</mat-checkbox>
+    <mat-checkbox class="example-margin" [(ngModel)]="hybrid">Hybrid</mat-checkbox>
+</section>
+
+<section class="example-section">
+  <mat-checkbox class="example-margin" [(ngModel)]="disabled">Disabled</mat-checkbox>
+</section>
+  
+
+<mat-card>
+Vehicle: <h2>{{modifiedText}}</h2>
+Miles: <h4>{{mileage}}</h4>
+Zipcode: <h4>{{zipcode}}</h4>
+<mat-checkbox class="example-margin" [(ngModel)]="fwd" [disabled]="disabled">
+  Four Wheel Drive Checked
+</mat-checkbox>
+<mat-checkbox class="example-margin" [(ngModel)]="diesel" [disabled]="disabled">
+  Diesel Checked
+</mat-checkbox>
+<mat-checkbox class="example-margin" [(ngModel)]="turbo" [disabled]="disabled">
+  Turbo Checked
+</mat-checkbox>
+<mat-checkbox class="example-margin" [(ngModel)]="hybrid" [disabled]="disabled">
+  Hybrid Checked
+</mat-checkbox>
+</mat-card>
+
+
+
+

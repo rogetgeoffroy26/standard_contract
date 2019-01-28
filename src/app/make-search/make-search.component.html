@@ -1,0 +1,18 @@
+  <div>
+    Load customer data...
+    <button (click)="toggleCollapsed()">Expand/Collapse</button>
+    <div *ngIf="!isCollapsed">
+      <ul *ngFor="let quote of quotes">
+          <li>
+            <ul>
+              <li><strong>ID:</strong> {{quote.id}}</li>
+              <li><strong>Title:</strong> {{quote.title}}</li>
+              <li><strong>Body:</strong> {{quote.body}}</li>
+            </ul>
+          </li>
+        </ul>
+    </div>
+  </div>
+    
+    
+      

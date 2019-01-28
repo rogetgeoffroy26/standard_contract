@@ -1,0 +1,9 @@
+<div *ngIf="option">
+    <h2>{{option.make | uppercase}} Details</h2>
+    <div><span>model: </span>{{option.model}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="option.make" placeholder="make"/>
+      </label>
+    </div>
+  </div>
